@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Кирюха кликер" content="Кликай на кирилла и зарабатывай KIRYXA TOKEN.">
+	<meta name="Кирюха кликер" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="images/profile.jpg" type="image/png">
+<meta property="og:image" content="images/profile.jpg">
+
+
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Звук повышения уровня -->
+    <audio id="level-up-sound" src="audio/level-up-sound.mp3"></audio>
+    
+    <!-- Видео для повышения уровня -->
+    <video id="level-up-video" src="video/by-by.mp4" style="display: none;" controls></video>
+
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <img src="images/profile.jpg" alt="но реакшн" class="profile-img">
+            </div>
+            <div class="header-right">
+                <a href="https://vk.com/m.neiroset" class="creator-link">Создатель: максончик</a>
+            </div>
+        </header>
+        <div class="top-section">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-text">Прибыль за тап</span>
+                    <span class="stat-value">+1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-text">Монет для апа</span>
+                    <span class="stat-value">1488</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-text">Прибыль в час</span>
+                    <span class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="coins">
+                <span class="coins-count">0</span>
+            </div>
+            <div class="progress">
+                <span>дэфолт</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+                <span>Level 1/3</span>
+            </div>
+            <div class="experience">
+                <span class="experience-count">0 / 1488</span>
+            </div>
+        </div>
+        <div class="circle-container">
+            <img src="images/hamster.png" alt="чиго" class="circle-img" id="clickable">
+        </div>
+        <div class="bottom-section">
+            <div class="energy">
+                <span class="energy-count">1000 / 1000</span>
+                <button class="boost-btn">Бусты</button>
+                <div class="energy-gain" id="energy-gain" style="display: none;">+<span id="energy-amount">1</span> энергии!</div>
+            </div>
+            <footer>
+                <button class="footer-btn" id="creators-btn">Создатели</button>
+                <button class="footer-btn" id="airdrop-btn">Аирдроп</button>
+                <button class="footer-btn" id="version-btn">Сменить версию</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Всплывающее окно для модального окна аирдропа -->
+    <div class="modal" id="airdrop-modal">
+        <h2>Если дадите денег, я подумаю!</h2>
+        <button class="close-modal">✖</button>
+    </div>
+
+    <!-- Всплывающее окно выбора версии -->
+    <div class="modal" id="version-modal">
+        <button class="close-modal">✖</button>
+        <h2>Выберите версию сайта(пока что это не работат)</h2>
+        <div class="version-buttons">
+            <button id="phone-version" class="version-btn">Мобильная версия</button>
+            <button id="pc-version" class="version-btn">ПК версия</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

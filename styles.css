@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: none; /* Убираем фон */
+    color: #fff;
+    height: 100vh; /* Высота экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw; /* Увеличенный адаптивный размер шрифта */
+}
+
+.container {
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    background-color: #1b1b1b; /* Черный фон */
+    padding: 3vw; /* Увеличенные отступы */
+    box-sizing: border-box; /* Включаем padding в ширину и высоту */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5vw; /* Увеличенные отступы */
+    border-bottom: 2px solid #444;
+    font-size: 3vw; /* Увеличенный размер шрифта */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    width: 7.5vw; /* Увеличенный размер */
+    height: 7.5vw; /* Увеличенный размер */
+    border-radius: 50%;
+    margin-right: 1.5vw;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.creator-link {
+    font-size: 6vw; /* Увеличенный размер текста */
+    color: #ffd700;
+    text-decoration: none;
+}
+
+.top-section,
+.bottom-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 3vw; /* Увеличенный адаптивный размер шрифта */
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5vw 0; /* Увеличенные отступы */
+    border-bottom: 2px solid #444;
+}
+
+.stat-item {
+    text-align: center;
+    background-color: #333; /* Черный фон */
+    padding: 1.5vw; /* Увеличенные отступы */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    border: 0.3vw solid #ffd700; /* Увеличенная обводка */
+}
+
+.coins {
+    text-align: center;
+    margin: 3vw 0; /* Увеличенные отступы */
+}
+
+.coins-count {
+    font-size: 12vw; /* Увеличенный размер текста */
+    font-weight: bold;
+    background-color: #333; /* Черный фон */
+    padding: 1.5vw; /* Увеличенные отступы */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    border: 0.3vw solid #ffd700; /* Увеличенная обводка */
+}
+	
+.experience {
+    text-align: center;
+    margin: 1.5vw 0; /* Увеличенные отступы */
+}
+
+.experience-count {
+    font-size: 7.5vw; /* Увеличенный размер текста */
+    font-weight: bold;
+    background-color: #333; /* Черный фон */
+    padding: 1.5vw; /* Увеличенные отступы */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    border: 0.3vw solid #ffd700; /* Увеличенная обводка */
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw 0; /* Увеличенные отступы */
+}
+
+.progress-bar {
+    flex: 1;
+    height: 3vh; /* Увеличенная высота */
+    background-color: #555;
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    margin: 0 1.5vw; /* Увеличенные отступы */
+    position: relative; /* Для цветной обводки */
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #ffd700;
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    margin: 3vw 0; /* Увеличенные отступы */
+    position: relative; /* Для цветной обводки */
+}
+
+.circle-img {
+    width: 30vw; /* Увеличенный размер */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Плавное уменьшение */
+}
+
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.energy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw 0; /* Увеличенные отступы */
+    border-bottom: 2px solid #444;
+}
+
+.energy-count {
+    font-size: 6vw; /* Увеличенный размер текста */
+}
+
+.boost-btn {
+    background: #ffd700;
+    border: none;
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    padding: 1.5vw 3vw; /* Увеличенные отступы */
+    cursor: pointer;
+    font-size: 6vw; /* Увеличенный размер текста */
+}
+
+.energy-gain {
+    color: #00ff00; /* Цвет текста для +1 энергии */
+    font-size: 7.5vw; /* Увеличенный размер текста */
+    position: absolute;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Игнорировать события мыши */
+}
+
+footer {
+    display: flex;
+    justify-content: space-around; /* Для равномерного распределения кнопок */
+    padding: 2vw 0; /* Увеличенные отступы */
+}
+
+.footer-btn {
+    background-color: #333; /* Черный фон */
+    border: 0.3vw solid #ffd700; /* Увеличенная обводка */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    color: #fff;
+    font-size: 4.7vw; /* Увеличенный размер текста */
+    padding: 2vw 2.5vw; /* Увеличенные отступы */
+    cursor: pointer;
+    transition: background 0.3s;
+	margin: 0.5vw;
+}
+
+.footer-btn:hover {
+    background-color: #444; /* Цвет фона при наведении */
+}
+
+/* Стили для цветной обводки */
+.circle-container.active .circle-img {
+    border: 0.75vw solid rgba(255, 215, 0, 0.5); /* Полупрозрачная золотая обводка */
+    box-shadow: 0 0 3vw rgba(255, 215, 0, 0.5); /* Тень */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    color: white;
+    padding: 3vw; /* Увеличенные отступы */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    z-index: 1000;
+    text-align: center;
+    width: 80%;
+    max-width: 80vw; /* Увеличенная ширина */
+    font-size: 4vw; /* Увеличенный адаптивный размер шрифта */
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12vw; /* Увеличенный размер текста */
+    position: absolute;
+    top: 1.5vw; /* Увеличенные отступы */
+    right: 1.5vw; /* Увеличенные отступы */
+    cursor: pointer;
+}
+
+.version-buttons {
+    display: flex;
+    justify-content: space-around; /* Разместить кнопки по горизонтали */
+    margin-top: 3vw; /* Увеличенные отступы */
+}
+
+.version-btn {
+    background-color: #333; /* Черный фон */
+    border: 0.3vw solid #ffd700; /* Увеличенная обводка */
+    border-radius: 1.5vw; /* Увеличенное скругление углов */
+    color: #fff;
+    font-size: 6vw; /* Увеличенный размер текста */
+    padding: 1.5vw 3vw; /* Увеличенные отступы */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.version-btn:hover {
+    background-color: #444; /* Цвет фона при наведении */
+}
+
+.progress-fill {
+    width: 0%;
+    transition: width 0.5s;
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 600px) {
+    .container {
+        padding: 4vw; /*
