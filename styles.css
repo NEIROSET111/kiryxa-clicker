@@ -177,6 +177,7 @@ header {
     padding: 1.5vw 3vw; /* Увеличенные отступы */
     cursor: pointer;
     font-size: 5vw; /* Уменьшенный размер текста */
+	pointer-events: none; /* Делает текст некликабельным */
 }
 
 .energy-gain {
