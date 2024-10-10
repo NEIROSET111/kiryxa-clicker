@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Звук при повышении уровня
     const levelUpSound = new Audio('path/to/level-up-sound.mp3');
 
-    // Видео при повышении уровня
-   
-
     // Функция для обновления стиля фона
     function updateBackground() {
         if (window.innerWidth < window.innerHeight) {
@@ -176,17 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Воспроизвести звук
         levelUpSound.play();
-
-        // // // // Показать видео
-         //// // levelUpVideo.style.display = 'block';
-         //levelUpVideo.play();
-
-        // Скрыть видео через 8 секунд
-         // // // // // // // //setTimeout(() => {
-          // // // // // // // // // // // // //   levelUpVideo.style.display = 'none';
-          // // // // // //   levelUpVideo.pause();
-          // // // // //   levelUpVideo.currentTime = 0;
-        // // // // }, 8000);
     }
 
     // Активация буста
@@ -194,48 +180,49 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!boostCooldown && !isBoosted) {
             isBoosted = true;
             clickProfit *= 5; // Увеличиваем количество монет за клик
-            boostBtn.textContent = 'Boost Active';
+            boostBtn.textContent = 'Boost Active'; // Показать, что буст активен
             boostBtn.classList.add('boost-active'); // Добавляем класс для активного буста
             boostBtn.disabled = true; // Блокируем кнопку буста
-			            boostCooldown = true; // Устанавливаем кулдаун буста
+            
+            // Таймер для 10 секунд
             setTimeout(() => {
                 isBoosted = false;
                 clickProfit /= 5; // Возвращаем количество монет за клик
-                boostBtn.textContent = 'Activate Boost';
-                boostBtn.classList.remove('boost-active'); // Убираем класс активного буста
-                boostBtn.disabled = false; // Разблокируем кнопку буста
-                boostCooldown = false; // Снимаем кулдаун
-            }, 10000); // Продолжительность буста 10 секунд
+                boostBtn.textContent = 'Boost Cooldown'; // Уведомление о кулдауне
+                boostBtn.classList.remove('boost-active'); // Убираем класс для активного буста
+                
+                // Таймер кулдауна на 1 час
+                boostCooldown = true;
+                let cooldownDuration = 3600000; // 1 час в миллисекундах
+                let cooldownEndTime = Date.now() + cooldownDuration;
 
-            // Начинаем восстанавливать энергию в зависимости от состояния буста
-            setInterval(() => {
-                if (isBoosted) {
-                    energy += 2; // Восстанавливаем 2 единицы энергии
-                } else {
-                    energy += 1; // Восстанавливаем 1 единицу энергии
-                }
-
-                // Ограничиваем максимальное значение энергии
-                if (energy > 1000) {
-                    energy = 1000; // Энергия не может превышать 1000
-                }
-
-                energyCountElement.textContent = `${energy} / 1000`;
-            }, 2000); // Восстановление энергии каждые 2 секунды
+                const cooldownInterval = setInterval(() => {
+                    let timeRemaining = cooldownEndTime - Date.now();
+                    if (timeRemaining <= 0) {
+                        clearInterval(cooldownInterval);
+                        boostCooldown = false; // Сбрасываем флаг кулдауна
+                        boostBtn.textContent = 'Activate Boost'; // Возвращаем текст кнопки
+                        boostBtn.disabled = false; // Разблокируем кнопку
+                    } else {
+                        let minutesRemaining = Math.floor((timeRemaining / 1000) / 60);
+                        let secondsRemaining = Math.floor((timeRemaining / 1000) % 60);
+                        boostBtn.textContent = `Cooldown: ${minutesRemaining}m ${secondsRemaining}s`; // Обновляем текст с таймером
+                    }
+                }, 1000);
+            }, 10000); // Время активации буста (10 секунд)
         }
     });
 
-    // Восстановление энергии на старте
-    setInterval(() => {
-        if (!isBoosted) {
+    // Восстановление энергии каждые 2 секунды
+setInterval(() => {
+    if (energy < 1000) {
+        if (isBoosted) {
+            energy += 4; // Восстанавливаем 4 единицы энергии во время буста
+        } else {
             energy += 1; // Восстанавливаем 1 единицу энергии
         }
-
-        // Ограничиваем максимальное значение энергии
-        if (energy > 1000) {
-            energy = 1000; // Энергия не может превышать 1000
-        }
-
         energyCountElement.textContent = `${energy} / 1000`;
-    }, 2000); // Восстановление энергии каждые 2 секунды
+    }
+}, 2000);
+
 });
